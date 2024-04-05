@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Portfolio</title>
+<style>
+html,body{
+margin:0px;
+padding:0px;
+background:#fafafa;
+user-select:none;
+color:#121212;
+width:100%;
+height: 100%;
+}
+body{padding-top: 20px;}
+@font-face {
+font-family: 'Dancing Script';
+src: url('fonts/Dancing Script.ttf') format('truetype');
+}
+*{font-family: 'Arial';}
+.hero-ctnr{
+display:flex;
+width: 100%;
+height: 100%;
+position: relative;
+}
+.hero-content{
+display: flex;
+flex-direction: column;
+width: 100%;
+height: 100%;
+align-items: center;
+justify-content: center;
+gap: 12px;
+position: absolute;
+top:0px;
+left:0px;
+background: #f1f8e9aa;
+backdrop-filter: blur( 2px );
+-webkit-backdrop-filter: blur( 2px );
+}
+.hero-bg{
+width: 100%;
+height: 100%;
+background: #e0e0e0;
+position: absolute;
+top:0px;
+left:0px;
+overflow: hidden;
+}
+.hero-heading, .hero-heading *{
+font-family: 'Dancing Script', "Ariel", cursive;
+font-size: 58px;
+}
+.hero-heading{
+padding: 4px;
+border-right: 2px solid #512da8;
+}
+.hero-heading {animation: blink 0.5s infinite alternate;}
+@keyframes blink {
+from {border-color: transparent;}
+to {border-color: #512da8;}
+}
+.hero-heading2{
+font-size: 20px;
+color:#424242;
+}
+.socials-icon{
+width:32px;
+height:32px;
+cursor: pointer;
+}
+.socials-icon:hover{
+transform: scale(1.1);
+}
+.socials-icon img{
+width: 100%;
+height: 100%;
+}
+.socials-ctnr{
+display: flex;
+gap: 8px;
+}
+.pill-btn{
+background: #504da8;
+color:#fafafa;
+cursor: pointer;
+border-radius: 64em;
+padding: 4px 12px;
+font-size: 18px;
+}
+.pill-btn:hover{transform: scale(1.1);}
+.hero-img{
+width:160px;
+height:160px;
+}
+.hero-img img{
+width: 100%;
+height: 100%;
+}
+@keyframes rotateClockwise {
+from {transform: rotate(0deg);}
+to {transform: rotate(360deg);}
+}
+.rotate-clockwise {animation: rotateClockwise 10s linear infinite;}
+@keyframes rotateAntiClockwise {
+from {transform: rotate(0deg);}
+to {transform: rotate(-360deg);}
+}
+.rotate-anticlockwise {animation: rotateAntiClockwise 10s linear infinite;}
+.navbar {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: #dcedc8;
+padding: 10px 20px;
+color: #121212;
+z-index: 1000;
+box-sizing: border-box;
+}
+.navbar-brand {
+font-size: 1.5em;
+font-weight: bold;
+font-family: 'Dancing Script', "Ariel", cursive;
+}
+.navbar-menu {
+display: flex;
+list-style-type: none;
+margin: 0;
+padding: 0;
+gap:16px
+}
+.navbar-menu li a {
+color: #212121;
+text-decoration: none;
+font-size: 1.2em;
+}
+.navbar-menu li a:hover {color: #7cb342;}
+.section-ctnr{
+display: flex;
+flex-direction: column;
+padding: 20px;
+align-items: center;
+justify-content: center;
+}
+.section-title{
+color: #121212;
+font-weight: bold;
+margin-bottom: 20px;
+font-size: 48px;
+}
+.section-desc{
+color: #212121;
+padding: 0px 40px;
+font-size: 20px;
+text-align: justify;
+}
+.section-grid{
+display: flex;
+gap: 20px;
+}
+.section-grid-item{
+width:200px;
+height:180px;
+border-radius: 8px;
+padding: 16px;
+display: flex;
+gap: 8px;
+flex-direction: column;
+align-items: center;
+-webkit-box-shadow: 0px 0px 16px -4px rgba(189, 189, 189, 1);
+-moz-box-shadow: 0px 0px 16px -4px rgba(189, 189, 189, 1);
+box-shadow: 0px 0px 16px -4px rgba(189, 189, 189, 1);
+}
+.section-icon{
+width: 40px;
+height: 40px;
+}
+.section-icon img{
+width: 100%;
+height: 100%;
+}
+.section-gi-title{
+font-size: 16px;
+font-weight: bold;
+}
+.section-gi-desc{
+font-size: 14px;
+text-align: center;
+}
+.section-edu{
+display: flex;
+gap:20px;
+}
+.section-edu .section-grid-item{height: 80px;}
+form {
+width: 400px;
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+}
+.form-group {
+display: flex;
+flex-direction: column;
+margin-bottom: 10px;
+}
+.form-group label {
+margin-bottom: 5px;
+font-size: 14px;
+}
+.form-group input[type="text"], textarea {
+border: none;
+outline: none;
+padding: 10px;
+margin: 0;
+background-color: #e0e0e0;
+border-radius: 5px;
+}
+.form-group input[type="text"] {flex: 1;}
+textarea {resize: vertical;}
+input[type="submit"] {
+background-color: #512da8;
+color: white;
+border-radius: 5px;
+padding: 10px 20px;
+border: none;
+cursor: pointer;
+}
+input[type="submit"]:hover {
+background-color: #7e57c2;
+}
+.footer-ctnr {
+background-color: #b3e5fc;
+color: #fff;
+width: 100%;
+height: 240px;
+position: absolute;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap:8px;
+}
+.footer-ctnr .footer-menu-ctnr{
+font-size: 16px;
+display: flex;
+flex-direction: row;
+}
+.footer-ctnr .footer-menu-ctnr ul{
+list-style: none;
+}
+.footer-ctnr .footer-menu-ctnr li {display: inline;}
+.footer-ctnr a{color:#42a5f5;}
+.footer-ctnr a:hover{color:#1976d2;}
+.footer-brand{
+font-family: 'Dancing Script', "Ariel", cursive;
+color: #121212;
+font-weight: bold;
+font-size: 48px;
+}
+.footer-menu-ctnr ul {
+margin: 0;
+padding: 0;
+display: flex;
+padding: 20px 0px;
+gap:10px;
+}
+.scroll-to-top {
+display: none;
+position: fixed;
+bottom: 20px;
+right: 20px;
+z-index: 99;
+border: none;
+outline: none;
+background-color: #42a5f5;
+cursor: pointer;
+border-radius: 64em;
+width:48px;
+height: 48px;
+}
+.scroll-to-top img{
+width: 100%;
+height: 100%;
+}
+.scroll-to-top:hover {background-color: #9ccc65;}
+.footer-copyright{color:#121212;}
+</style>
+</head>
+<body>
+<nav class="navbar">
+<div class="navbar-brand">Personal Portfolio</div>
+<ul class="navbar-menu">
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+<div class="hero-ctnr">
+<div class="hero-bg"></div>
+<div class="hero-content">
+<div class="hero-img"><img src="imgs/no-profile-picture-15257.svg"/></div>
+<div class="hero-heading"><span style="color:#504da8;">B</span>ibek <span style="color:#504da8;">R</span>anjan <span style="color:#504da8;">B</span>aruah</div>
+<div class="hero-heading2">I'm a Software Developer</div>
+<div class="socials-ctnr">
+<div class="socials-icon"><img src="imgs/317712_github.svg"></div>
+<div class="socials-icon"><img src="imgs/2993782_dribbble_social media_icon.svg"></div>
+<div class="socials-icon"><img src="imgs/4362961_linkedin_social media_icon.svg"></div>
+<div class="socials-icon"><img src="imgs/3146791_whatsapp_logo_icon.svg"></div>
+<div class="socials-icon"><img src="imgs/5296499_fb_logo_icon.svg"></div>
+</div>
+<div class="pill-btn" style="margin-top:10px">Scroll Down</div>
+</div>
+</div>
+<div class="section-ctnr" id="about">
+<div class="section-title">About Me</div>
+<div class="section-desc">
+Hey there! Welcome to my personal portfolio site! I'm all about diving deep into the world of software development, game design, and website creation. Right now, I'm knee-deep in my studies at university, where I'm soaking up everything from AI to machine learning. When I'm not buried in books, you can find me whipping up some seriously cool games or getting lost in the art of graphics design. In my free time, I indulge in creating engaging games and exploring the realm of graphics design. With a commitment to excellence and a drive for continuous learning, I am dedicated to delivering impactful projects and contributing to the advancement of technology. 
+</div>
+</div>
+<div class="section-ctnr" id="skills">
+<div class="section-title">Skills</div>
+<div class="section-grid">
+<div class="section-grid-item">
+<div class="section-icon"><img src="imgs/5355692coding_development_programming.svg"></div>
+<div class="section-gi-title">Web Development</div>
+<div class="section-gi-desc">Web development encompasses building and maintaining websites or web applications, involving coding, designing, and deploying content for online platforms.</div>
+</div>
+<div class="section-grid-item">
+<div class="section-icon"><img src="imgs/809511_game_gamepad_gaming_multimedia_technology_icon.svg"></div>
+<div class="section-gi-title">Game Development</div>
+<div class="section-gi-desc">Game dev is crafting interactive experiences, blending art, design, and code to create engaging entertainment in digital environments.</div>
+</div>
+<div class="section-grid-item">
+<div class="section-icon"><img src="imgs/1743800_api_app_application_development_software_icon.svg"></div>
+<div class="section-gi-title">Software Development</div>
+<div class="section-gi-desc">Software development is the creation, design, coding, testing, and maintenance of software applications and systems to meet specific requirements.</div>
+</div>
+<div class="section-grid-item">
+<div class="section-icon"><img src="imgs/coding_3867537.png"></div>
+<div class="section-gi-title">Backend Development</div>
+<div class="section-gi-desc">Backend development involves building the server-side logic and database interactions of an application, handling data processing and server management.</div>
+</div>
+</div>
+</div>
+<div class="section-ctnr" id="education">
+<div class="section-title">Education</div>
+<div class="section-edu">
+<div class="section-grid-item">
+<div class="section-gi-title">Class 10</div>
+<div class="section-gi-desc">Don Bosco School, Amguri</div>
+<div class="section-gi-desc">(2013 - 2017)</div>
+</div>
+<div class="section-grid-item">
+<div class="section-gi-title">Class 12</div>
+<div class="section-gi-desc">National Academy, Amguri</div>
+<div class="section-gi-desc">(2017 - 2019)</div>
+</div>
+<div class="section-grid-item">
+<div class="section-gi-title">BSc IT</div>
+<div class="section-gi-desc">The Assam Kaziranga University, Jorhat</div>
+<div class="section-gi-desc">(2019 - 2022)</div>
+</div>
+<div class="section-grid-item">
+<div class="section-gi-title">MCA</div>
+<div class="section-gi-desc">The Assam Kaziranga University, Jorhat</div>
+<div class="section-gi-desc">(2022 - present)</div>
+</div>
+</div>
+</div>
+<div class="section-ctnr" id="contact">
+<div class="section-title">Contact</div>
+<div class="section-form">
+<form action="/submit" method="POST">
+<div style="display: flex;gap: 20px;">
+<div class="form-group">
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" placeholder="Enter name">
+</div>
+<div class="form-group">
+<label for="email">Email:</label>
+<input type="text" id="email" name="email" placeholder="Enter email">
+</div>
+</div>
+<div class="form-group">
+<label for="message">Message:</label>
+<textarea id="message" name="message" rows="4" placeholder="Enter message"></textarea>
+</div>
+<input type="submit" value="Submit">
+</form>
+</div>
+</div>
+<div class="footer-ctnr">
+<div class="footer-brand">Personal Portfolio</div>
+<div class="socials-ctnr">
+<div class="socials-icon"><img src="imgs/317712_github.svg"></div>
+<div class="socials-icon"><img src="imgs/2993782_dribbble_social media_icon.svg"></div>
+<div class="socials-icon"><img src="imgs/4362961_linkedin_social media_icon.svg"></div>
+<div class="socials-icon"><img src="imgs/3146791_whatsapp_logo_icon.svg"></div>
+<div class="socials-icon"><img src="imgs/5296499_fb_logo_icon.svg"></div>
+</div>
+<div class="footer-menu-ctnr">
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+<div class="footer-copyright">
+<p>&copy; 2023 All rights reserved.</p>
+</div>
+</div>
+<button onclick="topFunction()" class="scroll-to-top" title="Go to top"><img src="imgs/gototop.svg"/></button>
+<script>
+function generateBgShapes(parent, count, minSize, maxSize) {
+const colors = ["#42a5f5", "#504da8", "#ff5722", "#4caf50", "#f44336", "#e91e63", "#9c27b0", "#00bcd4", "#ffc107", "#795548"];
+const rotationClasses = ["rotate-clockwise", "rotate-anticlockwise"];
+const shapes = [];
+let isCollision=function(x, y, size) {
+for (const existingShape of shapes) {
+const x1 = x;
+const y1 = y;
+const x2 = x + size;
+const y2 = y + size;
+const x3 = existingShape.x;
+const y3 = existingShape.y;
+const x4 = existingShape.x + existingShape.size;
+const y4 = existingShape.y + existingShape.size;
+if (!(x2 < x3 || x4 < x1 || y2 < y3 || y4 < y1))return true;
+}
+return false;
+}
+for (let i = 0; i < count; i++) {
+const shapeType = Math.random() < 0.5 ? 'circle' : 'div';
+const shape = document.createElement(shapeType);
+let size;
+if (shapeType === 'circle') {
+size = minSize + Math.random() * (maxSize - minSize);
+shape.style.width = size + 'px';
+shape.style.height = size + 'px';
+shape.style.borderRadius = '50%';
+if (Math.random() < 0.5) {
+shape.style.backgroundColor = colors[i % colors.length];
+} else {
+shape.style.border = '4px solid ' + colors[i % colors.length];
+}
+} else {
+size = minSize + Math.random() * (maxSize - minSize);
+shape.style.width = size + 'px';
+shape.style.height = size + 'px';
+shape.style.borderRadius = '25%';
+if (Math.random() < 0.5) {
+shape.style.backgroundColor = colors[i % colors.length];
+} else {
+shape.style.border = '4px solid ' + colors[i % colors.length];
+}
+}
+const rotationClass = rotationClasses[i % 2];
+shape.classList.add(rotationClass);
+let x, y, t=0;
+do {
+x = Math.random() * (parent.offsetWidth - size);
+y = Math.random() * (parent.offsetHeight - size);
+if(++t>20)break;
+} while (isCollision(x, y, size));
+shape.style.position = 'absolute';
+shape.style.left = x + 'px';
+shape.style.top = y + 'px';
+parent.appendChild(shape);
+shapes.push({ x, y, size });
+}
+}
+generateBgShapes(document.querySelector('.hero-bg'), 20, 40, 120);
+var mybutton = document.querySelector(".scroll-to-top");
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 200) {
+mybutton.style.display = "block";
+} else {
+mybutton.style.display = "none";
+}
+}
+function topFunction() {
+window.scrollTo({top: 0,behavior: 'smooth'});
+}
+function scrollToTarget(targetId) {
+const navbarHeight = document.querySelector('nav').offsetHeight;
+const offset = -navbarHeight;
+const targetElement = document.getElementById(targetId);
+if (targetElement) {
+const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset;
+window.scrollTo({
+top: offsetTop + offset,
+behavior: 'smooth'
+});
+}
+}
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+scrollToTarget(this.getAttribute('href').substring(1));
+});
+});
+document.querySelector('.pill-btn').addEventListener('click', function() {scrollToTarget('about');});
+</script>
+</body>
+</html>
